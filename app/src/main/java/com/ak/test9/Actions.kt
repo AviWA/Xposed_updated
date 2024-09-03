@@ -24,41 +24,41 @@ class Actions: IXposedHookLoadPackage {
 
     @Throws(Throwable::class)
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-//        if (lpparam.packageName == "com.ak.testx2") {
+        if (lpparam.packageName == "com.ak.testx2") {
 
-//            XposedHelpers.findAndHookMethod(
-//                "com.ak.testx2.MainActivity",
-//                lpparam.classLoader,
-//                "onCreate",
-//                Bundle::class.java,
-//                object : XC_MethodHook() {
-//                    @Throws(Throwable::class)
-//                    override fun afterHookedMethod(param: MethodHookParam) {
-//                        XposedBridge.log("Hooked into MainActivity2 onCreate")
-//                        try {
-//                            // Access the activity instance
-//                            val activity = param.thisObject
-//                            // Find the TextView by its ID
-//                            val textView =
-//                                XposedHelpers.getObjectField(activity, "textView") as TextView
-//                            // Change the color of the TextView text
-//                            textView.setTextColor(Color.BLUE)
-//
-//                            val checkBox_Activity = param.thisObject as android.app.Activity
-//
-//                            // Find the CheckBox field using getObjectField
-//                            val checkbox =
-//                                XposedHelpers.getObjectField(checkBox_Activity, "check") as CheckBox
-//
-//                            // Set the CheckBox to be checked
-//                            checkbox.isChecked = true
-//
-//                        } catch (e: Exception) {
-//                            XposedBridge.log(e)
-//                        }
-//                    }
-//                }
-//            )
+            XposedHelpers.findAndHookMethod(
+                "com.ak.testx2.MainActivity",
+                lpparam.classLoader,
+                "onCreate",
+                Bundle::class.java,
+                object : XC_MethodHook() {
+                    @Throws(Throwable::class)
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        XposedBridge.log("Hooked into MainActivity2 onCreate")
+                        try {
+                            // Access the activity instance
+                            val activity = param.thisObject
+                            // Find the TextView by its ID
+                            val textView =
+                                XposedHelpers.getObjectField(activity, "textView") as TextView
+                            // Change the color of the TextView text
+                            textView.setTextColor(Color.BLUE)
+
+                            val checkBox_Activity = param.thisObject as android.app.Activity
+
+                            // Find the CheckBox field using getObjectField
+                            val checkbox =
+                                XposedHelpers.getObjectField(checkBox_Activity, "check") as CheckBox
+
+                            // Set the CheckBox to be checked
+                            checkbox.isChecked = true
+
+                        } catch (e: Exception) {
+                            XposedBridge.log(e)
+                        }
+                    }
+                }
+            )
 
 //            XposedHelpers.findAndHookMethod(
 //                "com.whatsapp.calling.views.VoipCallFooter",
@@ -131,37 +131,38 @@ class Actions: IXposedHookLoadPackage {
 //                }
 //            )
 
-//            XposedHelpers.findAndHookMethod(
-//                "com.ak.testx2.MainActivity",
-//                lpparam.classLoader,
-//                "onCreate",
-//                Bundle::class.java,
-//                object : XC_MethodHook() {
-//                    @Throws(Throwable::class)
-//                    override fun afterHookedMethod(param: MethodHookParam) {
-//                        XposedBridge.log("Hooked into MainActivity2 onCreate")
-//                        try {
-//                            // Access the activity instance
-//                            val activity = param.thisObject as Activity
-//                            // Find the TextView by its ID
-//                            val textView_N = activity.findViewById<TextView>(
-//                                activity.resources.getIdentifier(
-//                                    "textView_N", "id", activity.packageName))
-//                            // Change the color of the TextView text
-//                            textView_N.setTextColor(Color.BLACK)
-//                            // Call the native method
-//                            val nativeText = XposedHelpers.callMethod(activity, "native_Xposed") as String
-//                            val additionalText = "\n***Xposed Framework***"
-//                            textView_N.text = "$additionalText"
-//
-//                        } catch (e: Exception) {
-//                            XposedBridge.log(e)
-//                        }
-//                    }
-//                }
-//            )
+            XposedHelpers.findAndHookMethod(
+                "com.ak.testx2.MainActivity",
+                lpparam.classLoader,
+                "onCreate",
+                Bundle::class.java,
+                object : XC_MethodHook() {
+                    @Throws(Throwable::class)
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        XposedBridge.log("Hooked into MainActivity2 onCreate")
+                        try {
+                            // Access the activity instance
+                            val activity = param.thisObject as Activity
+                            // Find the TextView by its ID
+                            val textView_N = activity.findViewById<TextView>(
+                                activity.resources.getIdentifier(
+                                    "textView_N", "id", activity.packageName))
+                            // Change the color of the TextView text
+                            textView_N.setTextColor(Color.BLACK)
+                            // Call the native method
+                            val nativeText = XposedHelpers.callMethod(activity, "native_Xposed") as String
+                            val additionalText = "\n***Xposed Framework***"
+                            textView_N.text = "$additionalText"
+
+                        } catch (e: Exception) {
+                            XposedBridge.log(e)
+                        }
+                    }
+                }
+            )
 
         } // Package name equals
 //    }// handleLoadPackage
+    }
 
 }// Actions

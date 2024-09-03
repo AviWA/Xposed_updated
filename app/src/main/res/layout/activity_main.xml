@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:hint="Number to whatsapp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="244dp" />
+        tools:layout_editor_absoluteY="244dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/whatsapp"
@@ -24,5 +25,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/telegram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="telegram"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

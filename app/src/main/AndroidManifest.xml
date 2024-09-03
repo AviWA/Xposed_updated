@@ -3,6 +3,13 @@
     package="com.ak.test9"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <queries>
+        <package android:name="com.whatsapp"/>
+        <package android:name="com.ak.test9"/>
+
+    </queries>
+
+    <uses-permission android:name="cydia.permission.SUBSTRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -34,6 +41,16 @@
         <meta-data
             android:name="xposedminversion"
             android:value="82" />
+
+        <service
+            android:name=".WhatsAppNotificationListener"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
